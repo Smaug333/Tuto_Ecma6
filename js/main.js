@@ -14,7 +14,11 @@ document.getElementById('calcBtn').addEventListener('click', function() {
     let principal = document.getElementById("principal").value;
     let years = document.getElementById("years").value;
     let rate = document.getElementById("rate").value;
+    
     let {monthlyPayment, monthlyRate} = calculateMonthlyPayment(principal, years, rate);
+    
+    console.log(monthlyPayment, typeof(monthlyPayment));
+
     document.getElementById("monthlyPayment").innerHTML = monthlyPayment.toFixed(2);
     document.getElementById("monthlyRate").innerHTML = (monthlyRate * 100).toFixed(2);
 });

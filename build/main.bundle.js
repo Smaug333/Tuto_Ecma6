@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 var calculateMonthlyPayment = function calculateMonthlyPayment(principal, years, rate) {
 
     var monthlyRate = 0;
@@ -21,6 +23,9 @@ document.getElementById('calcBtn').addEventListener('click', function () {
 
     var monthlyPayment = _calculateMonthlyPaym.monthlyPayment;
     var monthlyRate = _calculateMonthlyPaym.monthlyRate;
+
+
+    console.log(monthlyPayment, typeof monthlyPayment === 'undefined' ? 'undefined' : _typeof(monthlyPayment));
 
     document.getElementById("monthlyPayment").innerHTML = monthlyPayment.toFixed(2);
     document.getElementById("monthlyRate").innerHTML = (monthlyRate * 100).toFixed(2);
