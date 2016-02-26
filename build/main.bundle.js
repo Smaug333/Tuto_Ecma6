@@ -48,10 +48,16 @@ document.getElementById('calcBtn').addEventListener('click', function () {
     var monthlyRate = _calculateAmortizatio.monthlyRate;
     var amortization = _calculateAmortizatio.amortization;
 
-
     document.getElementById("monthlyPayment").innerHTML = monthlyPayment.toFixed(2);
     document.getElementById("monthlyRate").innerHTML = (monthlyRate * 100).toFixed(2);
     amortization.forEach(function (month) {
         return console.log(month);
     });
+
+    var html = "";
+
+    amortization.forEach(function (year, index) {
+        return html += '\n\n        <tr>\n            <td>' + (index + 1) + '</td>\n            <td class="currency">' + Math.round(year.principalY) + '</td>\n            <td class="stretch">\n                <div class="flex">\n                    <div \n                        class="bar principal" \n                        style="-webkit-flex:' + year.principalY + '">\n                    </div>\n                    <div \n                        class="bar interest" \n                        style="-webkit-flex:' + year.interestY + '">\n                    </div>\n                </div>\n            </td>\n            <td class="currency left">' + Math.round(year.interestY) + '</td> \n            <td class="currency">' + Math.round(year.balance) + '</td>\n        </tr>\n    ';
+    });
+    document.getElementById("amortization").innerHTML = html;
 });
